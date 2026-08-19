@@ -1,0 +1,147 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #e8ecf1;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  padding: 20px;
+}
+
+.stopwatch-card {
+  background: #e8ecf1;
+  border-radius: 28px;
+  padding: 40px 34px;
+  width: 100%;
+  max-width: 360px;
+  text-align: center;
+  /* Neumorphic soft-shadow effect */
+  box-shadow: 10px 10px 24px #c7ccd4, -10px -10px 24px #ffffff;
+}
+
+.tag {
+  font-size: 0.7rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #9aa3b0;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.stopwatch-card h1 {
+  font-size: 1.5rem;
+  color: #33394a;
+  margin-bottom: 4px;
+}
+
+.creator {
+  font-size: 0.82rem;
+  color: #9aa3b0;
+  margin-bottom: 26px;
+}
+
+/* ---------- Circular progress ring ---------- */
+.ring {
+  position: relative;
+  width: 220px;
+  height: 220px;
+  margin: 0 auto 26px;
+}
+
+.progress-ring {
+  transform: rotate(-90deg);
+}
+
+.ring-bg,
+.ring-fg {
+  fill: none;
+  stroke-width: 10;
+}
+
+.ring-bg {
+  stroke: #d7dce3;
+}
+
+.ring-fg {
+  stroke: #4dd0a7;
+  stroke-linecap: round;
+  stroke-dasharray: 615.75; /* 2 * PI * r(98) */
+  stroke-dashoffset: 615.75;
+  transition: stroke-dashoffset 0.05s linear;
+}
+
+.display {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 2.1rem;
+  font-weight: 700;
+  color: #33394a;
+  font-variant-numeric: tabular-nums;
+}
+
+.display .cs {
+  font-size: 1.1rem;
+  color: #9aa3b0;
+}
+
+/* ---------- Controls ---------- */
+.controls {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  margin-bottom: 22px;
+}
+
+.btn {
+  border: none;
+  background: #e8ecf1;
+  padding: 12px 6px;
+  border-radius: 14px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: #33394a;
+  cursor: pointer;
+  box-shadow: 5px 5px 12px #c7ccd4, -5px -5px 12px #ffffff;
+  transition: box-shadow 0.15s ease, transform 0.15s ease, color 0.15s ease;
+}
+
+.btn:active:not(:disabled) {
+  box-shadow: inset 4px 4px 10px #c7ccd4, inset -4px -4px 10px #ffffff;
+  transform: translateY(1px);
+}
+
+.btn:disabled {
+  color: #c2c8d1;
+  cursor: not-allowed;
+}
+
+.btn.start { color: #2e9e75; }
+.btn.reset { color: #d9534f; }
+
+/* ---------- Laps ---------- */
+.laps {
+  list-style: none;
+  max-height: 150px;
+  overflow-y: auto;
+  text-align: left;
+}
+
+.laps li {
+  background: #ffffff;
+  padding: 9px 14px;
+  border-radius: 10px;
+  margin-bottom: 8px;
+  font-size: 0.85rem;
+  color: #33394a;
+  display: flex;
+  justify-content: space-between;
+  box-shadow: 3px 3px 8px #d7dce3;
+}

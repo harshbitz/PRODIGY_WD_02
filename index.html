@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Stopwatch Web Application</title>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <div class="stopwatch-card">
+    <p class="tag">Prodigy InfoTech - Task 02</p>
+    <h1>Stopwatch</h1>
+    <p class="creator">Created by Harsh Kumar</p>
+
+    <div class="ring">
+      <svg class="progress-ring" width="220" height="220">
+        <circle class="ring-bg" cx="110" cy="110" r="98" />
+        <circle class="ring-fg" id="ringFg" cx="110" cy="110" r="98" />
+      </svg>
+      <div class="display" id="display">00:00<span class="cs">.00</span></div>
+    </div>
+
+    <div class="controls">
+      <button id="startBtn" class="btn start">Start</button>
+      <button id="pauseBtn" class="btn pause" disabled>Pause</button>
+      <button id="lapBtn" class="btn lap" disabled>Lap</button>
+      <button id="resetBtn" class="btn reset">Reset</button>
+    </div>
+
+    <ul class="laps" id="lapList"></ul>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
